@@ -30,10 +30,6 @@ while True:
             description = description.replace(",", "")
             title = item.find('div',attrs={'class':'BNeawe vvjwJb AP7Wnd'}).get_text()
             title = title.replace(",","")
-            #print(title)
-            #print(description)
-            #print(time)
-            #print(link)
             writer.writerow({'Time_stamp':t.ctime(start),'Stock':Stock.replace("+"," "),'Title':title,'Description':description,'Time':time,'Link':link})
         mycsv.close()
 
@@ -54,10 +50,6 @@ while True:
                 description = description.replace(",", "")
                 title = item.find('div',attrs={'class':'BNeawe vvjwJb AP7Wnd'}).get_text()
                 title = title.replace(",","")
-                #print(title)
-                #print(description)
-                #print(time)
-                #print(link)
                 mycsv = open('data.csv','a')
                 mycsv.write("{},{},{},{},{},{} \n".format(t.ctime(start),additional_stocks.replace("+"," "),title,description,time,link))
             mycsv.close()
@@ -83,7 +75,6 @@ while True:
     msg["From"] = emailfrom
     msg["To"] = emailto
     msg["Subject"] = "Latest stock news"
-    #msg.preamble = "help I cannot send an attachment to save my life"
 
     ctype, encoding = mimetypes.guess_type(fileToSend)
     if ctype is None or encoding is not None:
